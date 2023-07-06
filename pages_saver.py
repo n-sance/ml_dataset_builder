@@ -12,16 +12,23 @@ REPEAT_HOURS = int(os.getenv('PAGES_SAVER_REPEAT_HOURS')) if os.getenv('PAGES_SA
 
 
 def handle_urls():
-    smart_log(f"SAVER: URLs queue size: {get_size()}")
-    url = pop_new_url()
-
-    while url:
-        _, netloc, _ = parse_url(url)
-
-        if saved := save_web_page(url, os.path.join(WEB_CONTENT_STORAGE, get_unique_filename(netloc)), screenshot=True):
-            log.info(f'SAVER: {saved} saved')
+    try:
+        smart_log(f"SAVER: URLs queue size: {get_size()}")
         url = pop_new_url()
-    smart_log('SAVER: URLs queue is empty')
+        failed_to_save = []
+        while url:
+            _, netloc, _ = parse_url(url)
+
+            if saved := save_web_page(url, os.path.join(WEB_CONTENT_STORAGE, get_unique_filename(netloc)),
+                                      screenshot=True):
+                log.info(f'SAVER: {saved} saved: Queue size: {get_size()}')
+            else:
+                failed_to_save.append(url)
+            url = pop_new_url()
+        smart_log('SAVER: URLs queue is empty')
+        log.info(f'SAVER: Failed to save URLs: {failed_to_save}')
+    except Exception as err:
+        smart_log(f'SAVER: Oooops... {err}')
 
 
 if __name__ == '__main__':
