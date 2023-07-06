@@ -15,8 +15,17 @@ options = Options()
 options.add_argument("--disable-web-security")
 options.add_argument("--ignore-certificate-errors")
 options.add_argument('--headless')
-options.add_argument("--start-maximized")
 options.add_argument('--no-sandbox')
+options.add_argument("--headless")
+options.add_argument("--window-size=1440,900")
+options.add_argument("--ignore-certificate-errors")
+options.add_argument("--ignore-ssl-errors")
+options.add_argument("--allow-running-insecure-content")
+options.add_argument(
+    'user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
+    'Chrome/58.0.3029.110 Safari/537.3')
+
+
 driver = webdriver.Chrome(options=options)
 driver.set_page_load_timeout(30)
 
@@ -24,12 +33,6 @@ driver.set_page_load_timeout(30)
 def save_web_page(url: str, save_folder: str, screenshot: bool):
     # Создаем папку для сохранения ресурсов, если она не существует
     os.makedirs(save_folder, exist_ok=True)
-
-    # Путь к драйверу Chrome
-    # chrome_driver_path =
-
-    # Создаем объект Service для ChromeDriver
-    # chrome_driver_service = webdriver.chrome.service.Service(chrome_driver_path)
 
     # Указываем путь к драйверу Chrome и сервису
     driver = webdriver.Chrome(options=options)
@@ -79,9 +82,7 @@ def save_web_page(url: str, save_folder: str, screenshot: bool):
     except Exception as err:
         log.error(f'Error saving {url}: {err}')
 
-
     finally:
-        # Завершаем работу драйвера браузера
         driver.quit()
 
 

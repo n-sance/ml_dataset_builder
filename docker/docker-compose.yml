@@ -19,6 +19,11 @@ services:
       - ~/webarchive:/app/webarchive
     depends_on:
       - redis
+    deploy:
+      resources:
+        limits:
+          cpus: '0.0'
+          memory: '0'
 
   url_grabber:
     build:
