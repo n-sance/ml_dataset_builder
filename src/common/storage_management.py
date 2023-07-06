@@ -27,6 +27,7 @@ def save_url(url):
 
 
 def pop_new_url() -> str:
+    print('PPPPPPPPOOOOOOOPPPPPP')
     url = r.rpop('urls_queue')
     if url:
         return url.decode('utf-8')
