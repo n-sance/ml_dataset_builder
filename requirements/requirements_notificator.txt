@@ -1,0 +1,8 @@
+async-timeout==4.0.2
+certifi==2023.5.7
+charset-normalizer==3.1.0
+idna==3.4
+redis==4.6.0
+requests==2.31.0
+schedule==1.2.0
+urllib3==2.0.3

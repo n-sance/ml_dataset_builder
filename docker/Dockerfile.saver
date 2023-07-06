@@ -1,0 +1,20 @@
+FROM selenium/standalone-chrome:latest
+
+USER root
+
+RUN apt-get update \
+    && apt-get install -y python3 python3-pip
+
+WORKDIR /app
+
+COPY ../requirements/requirements_saver.txt .
+
+RUN pip3 install --no-cache-dir -r requirements_saver.txt
+RUN pip3 install chromedriver-binary
+
+RUN mkdir webarchive
+
+COPY ../src src
+COPY ../pages_saver.py .
+
+CMD [ "python3", "pages_saver.py" ]

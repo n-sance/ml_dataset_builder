@@ -1,0 +1,12 @@
+FROM python:3.9-slim
+
+WORKDIR /app
+
+COPY ../requirements/requirements_notificator.txt .
+
+RUN pip3 install --no-cache-dir -r requirements_notificator.txt
+
+COPY ../src src
+COPY ../notificator.py .
+
+CMD [ "python3", "notificator.py" ]

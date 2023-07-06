@@ -1,0 +1,2 @@
+self-signed.badssl.com
+    self-signed.badssl.com

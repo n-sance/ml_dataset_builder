@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  redis:
+    image: redis
+    command: redis-server --appendonly yes
+    ports:
+      - 6379:6379
+    volumes:
+      - ~/redis:/data
+
+  saver:
+    build:
+      context: ..
+      dockerfile: ./docker/Dockerfile.saver
+    env_file:
+      - ../env/env.txt
+    volumes:
+      - ~/webarchive:/app/webarchive
+    depends_on:
+      - redis
+
+  url_grabber:
+    build:
+      context: ..
+      dockerfile: ./docker/Dockerfile.grabber
+    env_file:
+      - ../env/env.txt
+    depends_on:
+      - redis
+
+  notificator:
+    build:
+      context: ..
+      dockerfile: ./docker/Docker.notificator
+    env_file:
+      - ../env/env.txt
+    depends_on:
+      - redis
