@@ -7,7 +7,7 @@ import chromedriver_binary
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-from src.common.log_management import log
+# from src.common.log_management import log
 
 requests.packages.urllib3.disable_warnings()
 
@@ -80,8 +80,8 @@ def save_web_page(url: str, save_folder: str, screenshot: bool):
 
         return html_save_path
     except Exception as err:
-        log.error(f'Error saving {url}: {err}')
-
+        # log.error(f'Error saving {url}: {err}')
+        pass
     finally:
         driver.quit()
 
@@ -129,3 +129,6 @@ def get_unique_filename(filename):
         suffix += 1
 
     return filename
+
+if __name__ == '__main__':
+    save_web_page('https://www.sooninn.com.tw/wp-content/themes/seotheme/wordpr/dhl-rd354/index.html', 'here', screenshot=True)

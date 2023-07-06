@@ -2,7 +2,7 @@ import os
 import redis
 
 
-host = os.getenv('REDIS_HOST')
+host = os.getenv('REDIS_HOST') or 'localhost'
 port = int(os.getenv('REDIS_PORT')) if os.getenv('REDIS_PORT') else 6379
 
 r = redis.Redis(host=host, port=port, db=0)
