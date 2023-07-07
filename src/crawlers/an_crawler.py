@@ -6,6 +6,7 @@ import uuid
 import chromedriver_binary
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 
 from src.common.log_management import log
 
@@ -25,8 +26,9 @@ options.add_argument(
     'user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
     'Chrome/58.0.3029.110 Safari/537.3')
 
+service = Service(service_args=['--verbose', '--log-path=~/selenium_log.log'])
 
-driver = webdriver.Chrome(options=options)
+driver = webdriver.Chrome(options=options, service=service)
 driver.set_page_load_timeout(30)
 
 

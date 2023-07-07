@@ -9,6 +9,7 @@ from src.common.log_management import log, smart_log
 
 WEB_CONTENT_STORAGE = os.getenv('PAGES_SAVER_WEB_CONTENT_STORAGE') or 'web_archive'
 REPEAT_HOURS = int(os.getenv('PAGES_SAVER_REPEAT_HOURS')) if os.getenv('PAGES_SAVER_REPEAT_HOURS') else 8
+CONTENT_CHUNK_LIMIT = int(os.getenv('PAGES_SAVER_CONTENT_CHUNK_LIMIT')) if os.getenv('PAGES_SAVER_CONTENT_CHUNK_LIMIT') else 100
 
 
 def handle_urls():
