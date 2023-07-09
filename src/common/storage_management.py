@@ -40,3 +40,26 @@ def add_message(msg: str):
 
 def pop_message():
     return r.rpop('notifications_queue')
+
+
+def get_counter():
+    c = r.get('counter')
+    if not c:
+        counter_init()
+    return int(c.decode('utf-8')) if c else 0
+
+
+def counter_init():
+    return r.set('counter', 0)
+
+
+def counter_inc():
+    return r.incr('counter')
+
+
+def add_failed_to_save(url):
+    r.sadd('failed_set', url)
+
+
+def size_failed_to_save():
+    return r.scard('failed_set')

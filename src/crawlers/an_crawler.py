@@ -1,12 +1,15 @@
 import os
+import time
 from urllib.parse import urlparse, urljoin
 from selenium.webdriver.common.by import By
 import requests
 import uuid
+import base64
 import chromedriver_binary
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.keys import Keys
 
 from src.common.log_management import log
 
@@ -15,7 +18,7 @@ requests.packages.urllib3.disable_warnings()
 options = Options()
 options.add_argument("--disable-web-security")
 options.add_argument("--ignore-certificate-errors")
-options.add_argument('--headless')
+# options.add_argument('--headless')
 options.add_argument('--no-sandbox')
 options.add_argument("--headless")
 options.add_argument("--window-size=1440,900")
@@ -41,13 +44,21 @@ def save_web_page(url: str, save_folder: str, screenshot: bool):
 
     try:
         # Загружаем веб-страницу
+        time.sleep(1)
         driver.get(url)
 
         with open(os.path.join(save_folder, 'url.txt'), 'w') as f:
             f.write(url + '\n')
 
         if screenshot is True:
-            driver.save_screenshot(os.path.join(save_folder, 'screenshot.png'))
+            original_size = driver.get_window_size()
+            required_width = driver.execute_script('return document.body.parentNode.scrollWidth')
+            required_height = driver.execute_script('return document.body.parentNode.scrollHeight')
+            driver.set_window_size(required_width, required_height)
+            # driver.save_screenshot(path)  # has scrollbar
+            driver.find_element(By.TAG_NAME, 'body').screenshot(os.path.join(save_folder, "and_full_page_screenshot.png"))  # avoids scrollbar
+            driver.set_window_size(original_size['width'], original_size['height'])
+
 
         # Получаем HTML-код страницы после выполнения JavaScript
         html = driver.page_source

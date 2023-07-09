@@ -3,6 +3,8 @@ version: '3'
 services:
   redis:
     image: redis
+    privileged: true
+    ipc: host
     ports:
       - "63679:6379"
     networks:
