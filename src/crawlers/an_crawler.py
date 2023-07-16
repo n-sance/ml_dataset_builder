@@ -1,17 +1,19 @@
 import os
+import io
 import time
-from urllib.parse import urlparse, urljoin
-from selenium.webdriver.common.by import By
 import requests
 import uuid
 import base64
 import chromedriver_binary
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.keys import Keys
+from urllib.parse import urlparse, urljoin
+from PIL import Image
 
 from src.common.log_management import log
+
 
 requests.packages.urllib3.disable_warnings()
 
@@ -73,8 +75,31 @@ def save_web_page(url: str, save_folder: str, screenshot: bool):
         img_elements = driver.find_elements(By.TAG_NAME, 'img')
         for img_element in img_elements:
             img_url = img_element.get_attribute('src')
-            abs_img_url = urljoin(url, img_url)
-            save_resource(abs_img_url, save_folder)
+            if img_url.startswith('data:image/png;base64,'):
+                # декод для векторных картинок PNG
+                base64_string = img_url.split('data:image/png;base64,')[1]
+                image_bytes = base64.b64decode(base64_string)
+                image_data = io.BytesIO(image_bytes)
+                image = Image.open(image_data)
+                # создаем случайное имя для изображения с помощью uuid
+                filename = f"{uuid.uuid4().hex}.png"
+                image.save(os.path.join(save_folder, filename))
+            elif img_url.startswith('data:image/svg+xml;base64,'):
+                # декод для векторных картинок SVG
+                base64_string = img_url.split('data:image/svg+xml;base64,')[1]
+                image_bytes = base64.b64decode(base64_string)
+                # создаем случайное имя для изображения с помощью uuid
+                filename = f"{uuid.uuid4().hex}.svg"
+                with open(os.path.join(save_folder, filename), 'wb') as f:
+                    f.write(image_bytes)
+            else:
+                # Обычный URL, обрабатываем его как раньше
+                abs_img_url = urljoin(url, img_url)
+                try:
+                    save_resource(abs_img_url, save_folder)
+                except requests.exceptions.RequestException as e:
+                    log.error(f"Error downloading: {abs_img_url}: {e}")
+
 
         # Получаем все теги <link> с rel="stylesheet" и сохраняем CSS стили
         link_elements = driver.find_elements(By.CSS_SELECTOR, 'link[rel="stylesheet"]')
@@ -100,7 +125,15 @@ def save_web_page(url: str, save_folder: str, screenshot: bool):
 
 def save_resource(url, save_folder):
     try:
-        response = requests.get(url, stream=True, verify=False)
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'Accept-Language': 'en-US,en;q=0.5',
+            'DNT': '1',
+            'Connection': 'keep-alive',
+            'Upgrade-Insecure-Requests': '1'
+        }
+        response = requests.get(url, headers=headers, stream=True, verify=False)
         response.raise_for_status()
 
         filename = os.path.basename(urlparse(url).path) or generate_random_filename()
@@ -141,6 +174,3 @@ def get_unique_filename(filename):
         suffix += 1
 
     return filename
-
-if __name__ == '__main__':
-    save_web_page('https://www.sooninn.com.tw/wp-content/themes/seotheme/wordpr/dhl-rd354/index.html', 'here', screenshot=True)

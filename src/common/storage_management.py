@@ -5,8 +5,10 @@ import redis
 host = os.getenv('REDIS_HOST') or 'localhost'
 port = int(os.getenv('REDIS_PORT')) if os.getenv('REDIS_PORT') else 6379
 
+
 r = redis.Redis(host=host, port=port, db=0)
 r.ping()
+
 r.expire('notifications_queue', 3600)
 r.expire('urls_queue', 3600)
 

@@ -1237,3 +1237,135 @@ No connection adapters were found for 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQ
 2023-07-05 23:10:40,494 [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10dbaa830>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/b31c479ca1c50422507b0da43cedb2ac
 2023-07-05 23:10:40,497 [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10dbab700>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/b31c479ca1c50422507b0da43cedb2ac
 2023-07-05 23:27:22,719 [INFO] NOTIFICATOR: started
+2023-07-09 14:18:33,872 [INFO] SAVER: started
+2023-07-09 14:18:38,437 [INFO] SAVER: URLs queue size: 1743
+2023-07-09 14:19:36,434 [INFO] SAVER: started
+2023-07-09 14:19:39,065 [INFO] SAVER: URLs queue size: 1742
+2023-07-09 14:20:17,596 [INFO] SAVER: started
+2023-07-09 14:20:17,690 [INFO] SAVER: URLs queue size: 1741
+2023-07-09 14:21:59,375 [INFO] SAVER: started
+2023-07-09 14:21:59,471 [INFO] SAVER: URLs queue size: 1740
+2023-07-09 14:24:25,416 [INFO] SAVER: started
+2023-07-09 14:24:25,510 [INFO] SAVER: URLs queue size: 1739
+2023-07-09 14:26:40,498 [INFO] SAVER: started
+2023-07-09 14:26:40,593 [INFO] SAVER: URLs queue size: 1738
+2023-07-09 14:27:57,968 [ERROR] Error downloading: https://n3ngee.dns05.com/yanyuan/im/css/modules/laydate/default/laydate.css?v=5.3.1: 404 Client Error: Not Found for url: https://n3ngee.dns05.com/yanyuan/im/css/modules/laydate/default/laydate.css?v=5.3.1
+2023-07-09 14:27:58,892 [ERROR] Error downloading: https://n3ngee.dns05.com/yanyuan/im/css/modules/layer/default/layer.css?v=3.5.1: 404 Client Error: Not Found for url: https://n3ngee.dns05.com/yanyuan/im/css/modules/layer/default/layer.css?v=3.5.1
+2023-07-09 14:27:59,793 [ERROR] Error downloading: https://n3ngee.dns05.com/yanyuan/im/css/modules/code.css?v=2: 404 Client Error: Not Found for url: https://n3ngee.dns05.com/yanyuan/im/css/modules/code.css?v=2
+2023-07-09 14:28:26,769 [INFO] Appended to 'webarchive/webarchive_09_07_2023_0/mapping.csv'
+2023-07-09 14:28:43,666 [INFO] SAVER: webarchive/webarchive_09_07_2023_0/wvjujyj.cn/index.html saved: Queue size: 1737
+2023-07-09 14:31:08,602 [INFO] SAVER: started
+2023-07-09 14:31:08,693 [INFO] SAVER: URLs queue size: 1736
+2023-07-09 14:32:17,506 [INFO] SAVER: started
+2023-07-09 14:32:17,592 [INFO] SAVER: URLs queue size: 1735
+2023-07-09 14:32:36,705 [ERROR] Error downloading: https://2wc0hm.itsaol.com/yanyuan/im/css/modules/laydate/default/laydate.css?v=5.3.1: 404 Client Error: Not Found for url: https://2wc0hm.itsaol.com/yanyuan/im/css/modules/laydate/default/laydate.css?v=5.3.1
+2023-07-09 14:32:37,820 [ERROR] Error downloading: https://2wc0hm.itsaol.com/yanyuan/im/css/modules/layer/default/layer.css?v=3.5.1: 404 Client Error: Not Found for url: https://2wc0hm.itsaol.com/yanyuan/im/css/modules/layer/default/layer.css?v=3.5.1
+2023-07-09 14:32:38,753 [ERROR] Error downloading: https://2wc0hm.itsaol.com/yanyuan/im/css/modules/code.css?v=2: 404 Client Error: Not Found for url: https://2wc0hm.itsaol.com/yanyuan/im/css/modules/code.css?v=2
+2023-07-09 14:32:57,987 [INFO] Appended to 'webarchive/webarchive_09_07_2023_0/mapping.csv'
+2023-07-09 14:32:59,520 [INFO] SAVER: webarchive/webarchive_09_07_2023_0/wxshgd.cn/index.html saved: Queue size: 1734
+2023-07-09 14:33:44,884 [INFO] Appended to 'webarchive/webarchive_09_07_2023_0/mapping.csv'
+2023-07-09 14:33:44,928 [INFO] SAVER: webarchive/webarchive_09_07_2023_0/zdzdzdzdawwwwqs.hyperphp.com/index.html saved: Queue size: 1733
+2023-07-09 14:34:56,585 [ERROR] Error downloading: https://partner.googleadservices.com/gampad/cookie.js?domain=ww1.banrural.com&client=dp-bodis30_3ph&product=SAS&callback=__sasCookie: ('Connection aborted.', TimeoutError(60, 'Operation timed out'))
+2023-07-09 14:37:19,084 [INFO] Appended to 'webarchive/webarchive_09_07_2023_0/mapping.csv'
+2023-07-09 14:37:27,474 [INFO] SAVER: webarchive/webarchive_09_07_2023_0/ww1.banrural.com/index.html saved: Queue size: 1732
+2023-07-09 14:38:12,021 [ERROR] Error saving https://smbcco.xyz: Message: unknown error: net::ERR_NAME_NOT_RESOLVED
+  (Session info: headless chrome=114.0.5735.198)
+Stacktrace:
+0   chromedriver                        0x000000010aa466b8 chromedriver + 4937400
+1   chromedriver                        0x000000010aa3db73 chromedriver + 4901747
+2   chromedriver                        0x000000010a5fb616 chromedriver + 435734
+3   chromedriver                        0x000000010a5f30e1 chromedriver + 401633
+4   chromedriver                        0x000000010a5e373c chromedriver + 337724
+5   chromedriver                        0x000000010a5e5241 chromedriver + 344641
+6   chromedriver                        0x000000010a5e3b18 chromedriver + 338712
+7   chromedriver                        0x000000010a5e28c9 chromedriver + 334025
+8   chromedriver                        0x000000010a5e273c chromedriver + 333628
+9   chromedriver                        0x000000010a5e0faa chromedriver + 327594
+10  chromedriver                        0x000000010a5e138d chromedriver + 328589
+11  chromedriver                        0x000000010a5fd9c6 chromedriver + 444870
+12  chromedriver                        0x000000010a67e531 chromedriver + 972081
+13  chromedriver                        0x000000010a663012 chromedriver + 860178
+14  chromedriver                        0x000000010a67de76 chromedriver + 970358
+15  chromedriver                        0x000000010a662de3 chromedriver + 859619
+16  chromedriver                        0x000000010a630d7f chromedriver + 654719
+17  chromedriver                        0x000000010a6320de chromedriver + 659678
+18  chromedriver                        0x000000010aa022ad chromedriver + 4657837
+19  chromedriver                        0x000000010aa07130 chromedriver + 4677936
+20  chromedriver                        0x000000010aa0ddef chromedriver + 4705775
+21  chromedriver                        0x000000010aa0805a chromedriver + 4681818
+22  chromedriver                        0x000000010a9da92c chromedriver + 4495660
+23  chromedriver                        0x000000010aa25838 chromedriver + 4802616
+24  chromedriver                        0x000000010aa259b7 chromedriver + 4802999
+25  chromedriver                        0x000000010aa3699f chromedriver + 4872607
+26  libsystem_pthread.dylib             0x00007fff204ad8fc _pthread_start + 224
+27  libsystem_pthread.dylib             0x00007fff204a9443 thread_start + 15
+
+2023-07-09 14:38:43,775 [ERROR] Error saving https://maintain-membership.com/app/: Message: unknown error: net::ERR_NAME_NOT_RESOLVED
+  (Session info: headless chrome=114.0.5735.198)
+Stacktrace:
+0   chromedriver                        0x0000000106d3b6b8 chromedriver + 4937400
+1   chromedriver                        0x0000000106d32b73 chromedriver + 4901747
+2   chromedriver                        0x00000001068f0616 chromedriver + 435734
+3   chromedriver                        0x00000001068e80e1 chromedriver + 401633
+4   chromedriver                        0x00000001068d873c chromedriver + 337724
+5   chromedriver                        0x00000001068da241 chromedriver + 344641
+6   chromedriver                        0x00000001068d8b18 chromedriver + 338712
+7   chromedriver                        0x00000001068d78c9 chromedriver + 334025
+8   chromedriver                        0x00000001068d773c chromedriver + 333628
+9   chromedriver                        0x00000001068d5faa chromedriver + 327594
+10  chromedriver                        0x00000001068d638d chromedriver + 328589
+11  chromedriver                        0x00000001068f29c6 chromedriver + 444870
+12  chromedriver                        0x0000000106973531 chromedriver + 972081
+13  chromedriver                        0x0000000106958012 chromedriver + 860178
+14  chromedriver                        0x0000000106972e76 chromedriver + 970358
+15  chromedriver                        0x0000000106957de3 chromedriver + 859619
+16  chromedriver                        0x0000000106925d7f chromedriver + 654719
+17  chromedriver                        0x00000001069270de chromedriver + 659678
+18  chromedriver                        0x0000000106cf72ad chromedriver + 4657837
+19  chromedriver                        0x0000000106cfc130 chromedriver + 4677936
+20  chromedriver                        0x0000000106d02def chromedriver + 4705775
+21  chromedriver                        0x0000000106cfd05a chromedriver + 4681818
+22  chromedriver                        0x0000000106ccf92c chromedriver + 4495660
+23  chromedriver                        0x0000000106d1a838 chromedriver + 4802616
+24  chromedriver                        0x0000000106d1a9b7 chromedriver + 4802999
+25  chromedriver                        0x0000000106d2b99f chromedriver + 4872607
+26  libsystem_pthread.dylib             0x00007fff204ad8fc _pthread_start + 224
+27  libsystem_pthread.dylib             0x00007fff204a9443 thread_start + 15
+
+2023-07-09 14:39:39,027 [INFO] Appended to 'webarchive/webarchive_09_07_2023_0/mapping.csv'
+2023-07-09 14:39:39,077 [INFO] SAVER: webarchive/webarchive_09_07_2023_0/xn--seo-skmotoroptimering-lec.se/index.html saved: Queue size: 1729
+2023-07-09 14:45:32,899 [INFO] SAVER: started
+2023-07-09 14:45:32,993 [INFO] SAVER: URLs queue size: 1728
+2023-07-09 14:46:35,623 [INFO] Appended to 'webarchive/webarchive_09_07_2023_1/mapping.csv'
+2023-07-09 14:46:35,672 [INFO] SAVER: webarchive/webarchive_09_07_2023_1/xfgf51.webwave.dev/index.html saved: Queue size: 1733
+2023-07-09 14:46:47,344 [INFO] Appended to 'webarchive/webarchive_09_07_2023_1/mapping.csv'
+2023-07-09 14:46:47,387 [INFO] SAVER: webarchive/webarchive_09_07_2023_1/y5nwzo.webwave.dev/index.html saved: Queue size: 1732
+2023-07-09 14:48:14,899 [WARNING] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(54, 'Connection reset by peer')': /session/fe2ab58590210201f535dbfbe080c3b7
+2023-07-09 14:48:14,926 [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1030c0a60>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/fe2ab58590210201f535dbfbe080c3b7
+2023-07-09 14:48:14,946 [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1030c0ca0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/fe2ab58590210201f535dbfbe080c3b7
+2023-07-09 14:48:44,130 [INFO] SAVER: started
+2023-07-09 14:48:44,220 [INFO] SAVER: URLs queue size: 1731
+2023-07-09 14:50:45,151 [INFO] Appended to 'webarchive/webarchive_09_07_2023_1/mapping.csv'
+2023-07-09 14:50:45,209 [INFO] SAVER: webarchive/webarchive_09_07_2023_1/payment-by-sella-fattura-aruba.com/index.html saved: Queue size: 1730
+2023-07-09 14:51:41,016 [INFO] Appended to 'webarchive/webarchive_09_07_2023_1/mapping.csv'
+2023-07-09 14:58:12,822 [INFO] SAVER: started
+2023-07-09 14:58:12,908 [INFO] SAVER: URLs queue size: 1729
+2023-07-09 15:00:37,443 [WARNING] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(54, 'Connection reset by peer')': /session/d0c45912e7047a0c703b02d8fda31722
+2023-07-09 15:00:37,464 [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10a1f50d0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/d0c45912e7047a0c703b02d8fda31722
+2023-07-09 15:00:37,485 [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10a9c1b80>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/d0c45912e7047a0c703b02d8fda31722
+2023-07-09 15:00:41,505 [INFO] SAVER: started
+2023-07-09 15:00:41,600 [INFO] SAVER: URLs queue size: 1728
+2023-07-09 15:01:27,866 [WARNING] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10492fe50>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/176868baf3f28e81138de1eba1611464
+2023-07-09 15:01:27,884 [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x104227130>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/176868baf3f28e81138de1eba1611464
+2023-07-09 15:01:27,907 [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1049fe340>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/176868baf3f28e81138de1eba1611464
+2023-07-09 15:01:56,353 [INFO] SAVER: started
+2023-07-09 15:01:56,444 [INFO] SAVER: URLs queue size: 1727
+2023-07-09 15:02:25,078 [INFO] Appended to 'webarchive/webarchive_09_07_2023_2/mapping.csv'
+2023-07-09 15:02:26,395 [INFO] SAVER: webarchive/webarchive_09_07_2023_2/spotifystudent.com/index.html saved: Queue size: 1726
+2023-07-09 15:03:03,259 [INFO] Appended to 'webarchive/webarchive_09_07_2023_2/mapping.csv'
+2023-07-09 15:03:31,014 [INFO] SAVER: webarchive/webarchive_09_07_2023_2/docs.google.com/index.html saved: Queue size: 1725
+2023-07-09 15:03:33,284 [INFO] SAVER: webarchive/webarchive_09_07_2023_2/docs.google.com/index.html saved: Queue size: 1725
+2023-07-16 11:03:03,914 [INFO] SAVER: started
+2023-07-16 11:03:04,091 [INFO] SAVER: URLs queue size: 0
+2023-07-16 11:03:04,256 [INFO] SAVER: URLs queue is empty
+2023-07-16 11:03:04,416 [INFO] SAVER: Failed to save URLs: 499
