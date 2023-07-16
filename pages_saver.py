@@ -48,7 +48,8 @@ def sharded_safe_url(url, base_path):
 def handle_urls():
     try:
         while True:
-            if q_size := get_size() > 0:
+            q_size = get_size()
+            if q_size > 0:
                 smart_log(f"SAVER: URLs queue size: {q_size}")
                 url = pop_new_url()
                 while url:
