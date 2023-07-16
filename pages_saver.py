@@ -1,5 +1,4 @@
 import os
-import schedule
 import time
 import csv
 from datetime import datetime
@@ -48,13 +47,16 @@ def sharded_safe_url(url, base_path):
 
 def handle_urls():
     try:
-        smart_log(f"SAVER: URLs queue size: {get_size()}")
-        url = pop_new_url()
-        while url:
-            sharded_safe_url(url, WEB_CONTENT_STORAGE)
-            url = pop_new_url()
-        smart_log('SAVER: URLs queue is empty')
-        log.info(f'SAVER: Failed to save URLs: {size_failed_to_save()}')
+        while True:
+            if q_size := get_size() > 0:
+                smart_log(f"SAVER: URLs queue size: {q_size}")
+                url = pop_new_url()
+                while url:
+                    sharded_safe_url(url, WEB_CONTENT_STORAGE)
+                    url = pop_new_url()
+                smart_log('SAVER: URLs queue is empty')
+                log.info(f'SAVER: Failed to save URLs: {size_failed_to_save()}')
+            time.sleep(5)
     except Exception as err:
         smart_log(f'SAVER: Oooops... {err}')
 
@@ -62,8 +64,3 @@ def handle_urls():
 if __name__ == '__main__':
     smart_log('SAVER: started')
     handle_urls()
-    schedule.every(REPEAT_HOURS).hours.do(handle_urls)
-
-    while True:
-        schedule.run_pending()
-        time.sleep(1)

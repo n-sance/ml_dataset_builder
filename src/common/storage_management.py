@@ -30,7 +30,6 @@ def save_url(url):
 
 
 def pop_new_url() -> str:
-    print('PPPPPPPPOOOOOOOPPPPPP')
     url = r.rpop('urls_queue')
     if url:
         return url.decode('utf-8')
@@ -65,3 +64,11 @@ def add_failed_to_save(url):
 
 def size_failed_to_save():
     return r.scard('failed_set')
+
+
+def get_records(redis_key: str, count: int) -> list:
+    return r.srandmember(redis_key, count)
+
+
+def remove_records(redis_key: str, records: list):
+    return r.srem(redis_key, *records)
