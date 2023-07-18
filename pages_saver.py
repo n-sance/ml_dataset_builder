@@ -4,7 +4,7 @@ import csv
 from datetime import datetime
 from src.crawlers.an_crawler import save_web_page, get_unique_filename
 from src.common.storage_management import pop_new_url, get_size, counter_inc, \
-    counter_init, get_counter, add_failed_to_save, size_failed_to_save
+    counter_init, get_counter, add_failed_to_save, size_failed_to_save, pop_new_url_file, get_size_file
 from src.common.url_management import parse_url
 from src.common.log_management import log, smart_log
 
@@ -48,13 +48,13 @@ def sharded_safe_url(url, base_path):
 def handle_urls():
     try:
         while True:
-            q_size = get_size()
+            q_size = get_size_file()
             if q_size > 0:
                 smart_log(f"SAVER: URLs queue size: {q_size}")
-                url = pop_new_url()
+                url = pop_new_url_file()
                 while url:
                     sharded_safe_url(url, WEB_CONTENT_STORAGE)
-                    url = pop_new_url()
+                    url = pop_new_url_file()
                 smart_log('SAVER: URLs queue is empty')
                 log.info(f'SAVER: Failed to save URLs: {size_failed_to_save()}')
             time.sleep(5)

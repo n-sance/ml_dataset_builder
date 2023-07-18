@@ -1,6 +1,14 @@
 import os
 import redis
+import queue
 
+q = queue.Queue()
+
+with open('urls.txt', 'r') as f:
+    lines = f.readlines()
+
+    for l in lines:
+        q.put(l.strip())
 
 host = os.getenv('REDIS_HOST') or 'localhost'
 port = int(os.getenv('REDIS_PORT')) if os.getenv('REDIS_PORT') else 6379
@@ -23,6 +31,10 @@ def get_size(name='urls_queue'):
     return size
 
 
+def get_size_file():
+    return q.qsize()
+
+
 def save_url(url):
     r.sadd('urls_set', url)
     r.lpush('urls_queue', url)
@@ -34,6 +46,10 @@ def pop_new_url() -> str:
     if url:
         return url.decode('utf-8')
 
+
+def pop_new_url_file() -> str:
+    if not q.empty():
+        return q.get()
 
 def add_message(msg: str):
     return r.lpush('notifications_queue', msg)
@@ -69,6 +85,12 @@ def size_failed_to_save():
 def get_records(redis_key: str, count: int) -> list:
     return r.srandmember(redis_key, count)
 
+
+def get_all_records(redis_key: str):
+    return [x.decode('utf-8') for x in r.smembers(redis_key)]
+
+def get_instance():
+    return r
 
 def remove_records(redis_key: str, records: list):
     return r.srem(redis_key, *records)
