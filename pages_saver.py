@@ -40,7 +40,7 @@ def sharded_safe_url(url, base_path):
     if saved := save_web_page(url, url_folder, screenshot=True):
         counter_inc()
         append_data_to_csv((url, url_folder, ''), mapping_table)
-        log.info(f'SAVER: {saved} saved: Queue size: {get_size()}')
+        log.info(f'SAVER: {saved} saved: Queue size: {get_size_file()}')
     else:
         add_failed_to_save(url)
 
